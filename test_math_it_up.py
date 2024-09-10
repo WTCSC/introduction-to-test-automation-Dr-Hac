@@ -1,5 +1,7 @@
 import pytest
 import math_it_up
+import statistics
+import random
 
 """
 This file contains the tests for the math_it_up module, which contains the
@@ -24,30 +26,57 @@ The `mode` function accepts a single argument, a list of numbers, and returns
 the mode of the numbers.
 
 To run the tests, run `pytest` from the command line in the same directory as
-this file.
+this file. 
 """
 
+
 def test_is_even():
-  """
-  Tests for the `is_even` function
-  """
+    """
+    Tests for the `is_even` function
+    """
+    for i in range(1000):
+        # check numbers 1-1000 for evens or odds
+        assert math_it_up.is_even(i) == (i % 2 == 0)
+
 
 def test_is_odd():
-  """
-  Tests for the `is_odd` function
-  """
+    """
+    Tests for the `is_odd` function
+    """
+    # check numbers 1-1000 for evens or odds
+    for i in range(1000):
+        assert math_it_up.is_odd(i) == (i % 2 != 0)
+
 
 def test_mean():
-  """
-  Tests for the `mean` function
-  """
+    """
+    Tests for the `mean` function
+    """
+    l = []
+    # create a list of every number 1-1000 and test for the mean
+    for i in range(1000):
+        l.append(i + random.randint(1, 100))
+        assert math_it_up.mean(l) == statistics.mean(l)
+
 
 def test_median():
-  """
-  Tests for the `median` function
-  """
+    """
+    Tests for the `median` function
+    """
+    l = []
+    # create a list of every number 1-1000 and test for the median
+    for i in range(1000):
+        l.append(i + random.randint(1, 100))
+        assert math_it_up.median(l) == statistics.median(l)
+
 
 def test_mode():
-  """
-  Tests for the `mode` function
-  """
+    """
+    Tests for the `mode` function
+    """
+    l = []
+    # create a list of every number 1-1000 and test for the mode
+    for i in range(1000):
+        l.append(i + random.randint(1, 100))
+        assert math_it_up.mode(l) == statistics.multimode(l)
+
