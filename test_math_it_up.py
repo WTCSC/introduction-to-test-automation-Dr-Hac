@@ -1,5 +1,7 @@
 import pytest
 import math_it_up
+import statistics
+import random
 
 """
 This file contains the tests for the math_it_up module, which contains the
@@ -32,34 +34,44 @@ def test_is_even():
     """
     Tests for the `is_even` function
     """
-    assert math_it_up.is_even(2) == True  # test that the number 2 is even
-    assert math_it_up.is_even(3) == False  # test that the number 3 is not even
+    for i in range(1000):
+        assert math_it_up.is_even(i) == (i % 2 == 0)
 
 
 def test_is_odd():
     """
     Tests for the `is_odd` function
     """
-    assert math_it_up.is_odd(2) == False  # test that the number 2 is not odd
-    assert math_it_up.is_odd(3) == True  # test that hte number three is odd
+    for i in range(1000):
+        assert math_it_up.is_odd(i) == (i % 2 != 0)
 
 
 def test_mean():
     """
     Tests for the `mean` function
     """
-    assert math_it_up.mean([9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25]) == 16.75  # test that the mean of the list is 16.75
+    l = []
+    for i in range(1000):
+        l.append(i + random.randint(1, 100))
+        assert math_it_up.mean(l) == statistics.mean(l)
 
 
 def test_median():
     """
     Tests for the `median` function
     """
-    assert math_it_up.median([9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25]) == 15.5  # test that the median of the list is 15.5
+    l = []
+    for i in range(1000):
+        l.append(i + random.randint(1, 100))
+        assert math_it_up.median(l) == statistics.median(l)
 
 
 def test_mode():
     """
     Tests for the `mode` function
     """
-    assert math_it_up.mode([9, 10, 12, 13, 13, 13, 15, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25]) == [13, 15]  # test that the mode of the list is [13, 15]
+    l = []
+    for i in range(1000):
+        l.append(i + random.randint(1, 100))
+        assert math_it_up.mode(l) == statistics.multimode(l)
+
