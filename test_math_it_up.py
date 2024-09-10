@@ -27,27 +27,39 @@ To run the tests, run `pytest` from the command line in the same directory as
 this file.
 """
 
+
 def test_is_even():
-  """
-  Tests for the `is_even` function
-  """
+    """
+    Tests for the `is_even` function
+    """
+    assert math_it_up.is_even(2) == True  # test that the number 2 is even
+    assert math_it_up.is_even(3) == False  # test that the number 3 is not even
+
 
 def test_is_odd():
-  """
-  Tests for the `is_odd` function
-  """
+    """
+    Tests for the `is_odd` function
+    """
+    assert math_it_up.is_odd(2) == False  # test that the number 2 is not odd
+    assert math_it_up.is_odd(3) == True  # test that hte number three is odd
+
 
 def test_mean():
-  """
-  Tests for the `mean` function
-  """
+    """
+    Tests for the `mean` function
+    """
+    assert math_it_up.mean([9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25]) == 16.75  # test that the mean of the list is 16.75
+
 
 def test_median():
-  """
-  Tests for the `median` function
-  """
+    """
+    Tests for the `median` function
+    """
+    assert math_it_up.median([9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25]) == 15.5  # test that the median of the list is 15.5
+
 
 def test_mode():
-  """
-  Tests for the `mode` function
-  """
+    """
+    Tests for the `mode` function
+    """
+    assert math_it_up.mode([9, 10, 12, 13, 13, 13, 15, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25]) == [13, 15]  # test that the mode of the list is [13, 15]
