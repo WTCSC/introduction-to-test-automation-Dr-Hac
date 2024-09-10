@@ -24,7 +24,7 @@ The `mode` function accepts a single argument, a list of numbers, and returns
 the mode of the numbers.
 
 To run the tests, run `pytest` from the command line in the same directory as
-this file.
+this file. 
 """
 
 
